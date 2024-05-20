@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="679.0" prefWidth="1180.0" stylesheets="@../resource/FrescoExpressCSS.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.emiliolux.controller.MenuClientesController">
+   <children>
+      <ImageView fitHeight="683.0" fitWidth="1180.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/MenuClientes.png" />
+         </image>
+      </ImageView>
+      <GridPane layoutX="19.0" layoutY="315.0" prefHeight="238.0" prefWidth="218.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btnAgregarCliente" mnemonicParsing="false" onAction="#AgregarClientes" prefHeight="94.0" prefWidth="182.0" styleClass="buntton2" stylesheets="@../resource/KinalExpressCSS.css" text="Agregar">
+               <graphic>
+                  <ImageView fx:id="imgAgregar" fitHeight="40.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/AgregarClientes.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEditarCliente" layoutX="19.0" layoutY="13.0" mnemonicParsing="false" onAction="#editarClientes" prefHeight="52.0" prefWidth="181.0" stylesheets="@../resource/KinalExpressCSS.css" text="Editar" GridPane.rowIndex="2">
+               <graphic>
+                  <ImageView fx:id="imgEditar" fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/EditarClientes.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <styleClass>
+                  <String fx:value="button4" />
+                  <String fx:value="buntton2" />
+               </styleClass>
+            </Button>
+            <Button fx:id="btnEliminarCliente" layoutX="19.0" layoutY="82.0" mnemonicParsing="false" onAction="#eliminarClientes" prefHeight="52.0" prefWidth="181.0" styleClass="button1" stylesheets="@../resource/KinalExpressCSS.css" text="Eliminar" GridPane.rowIndex="1">
+               <graphic>
+                  <ImageView fx:id="imgEliminar" fitHeight="39.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/EliminarClientes.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnReporte" layoutX="19.0" layoutY="13.0" mnemonicParsing="false" onAction="#reportesClientes" prefHeight="50.0" prefWidth="181.0" text="Reportes" GridPane.rowIndex="3">
+               <graphic>
+                  <ImageView fx:id="imgReporte" fitHeight="38.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/ReportesClientes.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </GridPane>
+      <GridPane layoutX="832.0" layoutY="501.0" prefHeight="58.0" prefWidth="166.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+      <GridPane layoutX="281.0" layoutY="201.0" prefHeight="78.0" prefWidth="839.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="119.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.0" minWidth="10.0" prefWidth="75.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="254.0" minWidth="0.0" prefWidth="50.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="419.0" minWidth="10.0" prefWidth="76.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="419.0" minWidth="10.0" prefWidth="85.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="419.0" minWidth="10.0" prefWidth="283.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="144.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField fx:id="txtclienteID" prefHeight="0.0" prefWidth="104.0" GridPane.columnIndex="1" />
+            <Label layoutX="10.0" layoutY="28.0" prefHeight="28.0" prefWidth="116.0" text="NIT" GridPane.columnIndex="2">
+               <font>
+                  <Font name="Bodoni MT" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtnitCliente" prefHeight="25.0" prefWidth="146.0" GridPane.columnIndex="3" />
+            <Label layoutX="192.0" layoutY="28.0" prefHeight="28.0" prefWidth="90.0" text="Nombre" GridPane.columnIndex="4">
+               <font>
+                  <Font name="Bodoni MT" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtnombresCliente" GridPane.columnIndex="5" />
+            <Label prefHeight="28.0" prefWidth="90.0" text="Apellido" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Bodoni MT" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtapellidosCliente" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Label prefHeight="28.0" prefWidth="116.0" text="Cliente ID">
+               <font>
+                  <Font name="Bodoni MT" size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="28.0" prefWidth="95.0" text="Telefono" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Bodoni MT" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txttelefonoCliente" prefHeight="0.0" prefWidth="104.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="272.0" layoutY="162.0" prefHeight="28.0" prefWidth="415.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="28.0" prefWidth="135.0" text="Direccion">
+               <font>
+                  <Font name="Bodoni MT" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtdireccionCliente" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="809.0" layoutY="155.0" prefHeight="28.0" prefWidth="289.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="66.0" prefWidth="135.0" text="Correo">
+               <font>
+                  <Font name="Bodoni MT" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtcorreoCliente" prefHeight="51.0" prefWidth="147.0" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <Button fx:id="btnRegresar" layoutX="88.0" layoutY="578.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="58.0" prefWidth="79.0" styleClass="button1" stylesheets="@../resource/KinalExpressCSS.css">
+         <graphic>
+            <ImageView fitHeight="56.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Regresar.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <TableView fx:id="tblCliente" layoutX="287.0" layoutY="331.0" prefHeight="307.0" prefWidth="858.0" stylesheets="@../resource/KinalExpressCSS.css">
+        <columns>
+          <TableColumn fx:id="colclienteID" prefWidth="96.0" text="codigoCliente" />
+          <TableColumn fx:id="colnitCliente" prefWidth="88.0" text="nitCliente" />
+            <TableColumn fx:id="colnombresCliente" prefWidth="115.0" text="nombresCliente" />
+            <TableColumn fx:id="colapellidosCliente" prefWidth="98.0" text="apellidosCliente" />
+            <TableColumn fx:id="coldireccionCliente" prefWidth="150.0" text="direccionCliente" />
+            <TableColumn fx:id="coltelefonoCliente" prefWidth="132.0" text="telefonoCliente" />
+            <TableColumn fx:id="colcorreoCliente" prefWidth="178.0" text="correoCliente" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="1080.0" stylesheets="@../resource/FrescoExpressCSS.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.emiliolux.controller.MenuProgramadorController">
+   <children>
+      <ImageView fitHeight="621.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/MenuProgramador.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnRegresar" layoutX="25.0" layoutY="526.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="60.0" prefWidth="66.0">
+         <graphic>
+            <ImageView fitHeight="86.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Regresar.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+   </children>
+</AnchorPane>

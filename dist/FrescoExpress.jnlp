@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="FrescoExpress.jnlp">
+  <information>
+    <title>FrescoExpress</title>
+    <vendor>lphg3</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="FrescoExpress.jar" size="5258535" download="eager" />
+    <jar href="lib\mysql-connector-java-8.0.12.jar" size="2020431" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="FrescoExpress" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="org.emiliolux.system.Principal"  name="FrescoExpress" />
+  <update check="always"/>
+</jnlp>
