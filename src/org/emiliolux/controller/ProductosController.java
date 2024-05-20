@@ -52,10 +52,10 @@ public class ProductosController implements Initializable {
     private Button btnRegresar;
     
   @FXML
-    private ComboBox cmbcodigoProveedor;
+    private ComboBox <Proveedores> cmbcodigoProveedor;
 
     @FXML
-    private ComboBox cmbcodigoTipoProducto;
+    private ComboBox <TipoProducto>cmbcodigoTipoProducto;
 
     @FXML
     private TextField txtprecioMayor;
@@ -300,8 +300,8 @@ public class ProductosController implements Initializable {
                 LimpiarControles();
                 btnAgregar.setText("Agregar");
                 btnEliminar.setText("Eliminar");
-                imgAgregar.setImage(new Image("/org/emiliolux/images/Agregar.png"));
-                imgEliminar.setImage(new Image("/org/emiliolux/images/Eliminar.png"));  
+                imgAgregar.setImage(new Image("/org/emiliolux/images/AgregarClientes.png"));
+                imgEliminar.setImage(new Image("/org/emiliolux/images/EliminarClientes.png"));  
                 btnRegresar.setDisable(false);
                 btnReportes.setDisable(false);
                 btnEditar.setDisable(false);
@@ -394,7 +394,7 @@ public class ProductosController implements Initializable {
                     tipoDeOperaciones = operaciones.ACTUALIZAR;
                     break;
                 } else {
-                    JOptionPane.showMessageDialog(null, "Seleccione una tupla para editar");
+                    JOptionPane.showMessageDialog(null, "Debe seleccionar un producto para poder editar");
                     break;
                 }
             case ACTUALIZAR:
@@ -410,21 +410,21 @@ public class ProductosController implements Initializable {
                 LimpiarControles();
                 tipoDeOperaciones = operaciones.NINGUNO;
                 cargarDatos();
+                break;
         }
     }
     
 
     public void actualizar(){
         Productos registro = (Productos)tblProductos.getSelectionModel().getSelectedItem();
-        registro.setCodigoProveedor(((Proveedores) cmbcodigoProveedor.getSelectionModel().getSelectedItem()).getCodigoProveedor());
-        registro.setCodigoTipoProducto(((TipoProducto) cmbcodigoTipoProducto.getSelectionModel().getSelectedItem()).getCodigoTipoProducto());
         registro.setDescripcionProducto(txtdescripcionProducto.getText());
         registro.setPrecioUnitario(Integer.parseInt(txtprecioUnitario.getText()));
         registro.setPrecioDocena(Integer.parseInt(txtprecioDocena.getText()));
         registro.setPrecioMayor(Integer.parseInt(txtprecioMayor.getText()));
         registro.setImagenProducto(txtimagenProducto.getText());
         registro.setExistencia(Integer.parseInt(txtexistencia.getText()));
-        
+        registro.setCodigoProveedor(((Proveedores) cmbcodigoProveedor.getSelectionModel().getSelectedItem()).getCodigoProveedor());
+        registro.setCodigoTipoProducto(((TipoProducto) cmbcodigoTipoProducto.getSelectionModel().getSelectedItem()).getCodigoTipoProducto());
         try{
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_actualizarProducto( ?, ?, ?, ?, ?, ?, ?, ? , ?)}");
             procedimiento.setString(1, registro.getCodigoProducto());
@@ -465,24 +465,24 @@ public class ProductosController implements Initializable {
     
     public void DesactivarControles() {
         txtcodigoProducto.setEditable(false);
-        txtdescripcionProducto.setDisable(false);
-        txtprecioUnitario.setDisable(false);
-        txtprecioDocena.setDisable(false);
-        txtprecioMayor.setDisable(false);
-        txtimagenProducto.setDisable(false);
-        txtexistencia.setDisable(false);
+        txtdescripcionProducto.setEditable(false);
+        txtprecioUnitario.setEditable(false);
+        txtprecioDocena.setEditable(false);
+        txtprecioMayor.setEditable(false);
+        txtimagenProducto.setEditable(false);
+        txtexistencia.setEditable(false);
         cmbcodigoTipoProducto.setDisable(true);
         cmbcodigoProveedor.setDisable(true);
     }
 
     public void ActivarControles() {
         txtcodigoProducto.setEditable(true);
-        txtdescripcionProducto.setDisable(true);
-        txtprecioUnitario.setDisable(true);
-        txtprecioDocena.setDisable(true);
-        txtprecioMayor.setDisable(true);
-        txtimagenProducto.setDisable(true);
-        txtexistencia.setDisable(true);
+        txtdescripcionProducto.setEditable(true);
+        txtprecioUnitario.setEditable(true);
+        txtprecioDocena.setEditable(true);
+        txtprecioMayor.setEditable(true);
+        txtimagenProducto.setEditable(true);
+        txtexistencia.setEditable(true);
         cmbcodigoTipoProducto.setDisable(false);
         cmbcodigoProveedor.setDisable(false);
     }
@@ -496,8 +496,8 @@ public class ProductosController implements Initializable {
         txtimagenProducto.clear();
         txtexistencia.clear();
         tblProductos.getSelectionModel().getSelectedItem();
-        cmbcodigoTipoProducto.getSelectionModel().getSelectedItem();
-        cmbcodigoProveedor.getSelectionModel().getSelectedItem();
+    cmbcodigoTipoProducto.getSelectionModel().clearSelection();
+    cmbcodigoProveedor.getSelectionModel().clearSelection();
     }
 
     @FXML
