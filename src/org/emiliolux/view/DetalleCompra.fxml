@@ -5,17 +5,16 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="738.0" prefWidth="1319.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="org.emiliolux.controller.DetalleCompraController">
+<AnchorPane id="AnchorPane" prefHeight="738.0" prefWidth="1319.0" stylesheets="@../resource/FrescoExpressCSS.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.emiliolux.controller.DetalleCompraController">
    <children>
       <ImageView fitHeight="766.0" fitWidth="1337.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/MenuDetalleC.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnRegresar" layoutX="52.0" layoutY="662.0" mnemonicParsing="false" onAction="#handleButtonAction">
+      <Button fx:id="btnRegresar" layoutX="28.0" layoutY="652.0" mnemonicParsing="false" onAction="#handleButtonAction">
          <graphic>
-            <ImageView fitHeight="56.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="76.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/Regresar.png" />
                </image>

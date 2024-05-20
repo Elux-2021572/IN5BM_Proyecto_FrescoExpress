@@ -90,9 +90,9 @@ public class EmailProveedorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //cargarDatos();
-        //cmbCodigoP.setItems(getProveedores());
-        //cmbCodigoP.setDisable(true);
+        cargarDatos();
+        cmbCodigoP.setItems(getProveedores());
+        cmbCodigoP.setDisable(true);
     }
 
     public Principal getEscenarioPrincipal() {
@@ -107,9 +107,9 @@ public class EmailProveedorController implements Initializable {
         DesactivarControles();
         tblEmailPro.setItems(getEmailProveedor());
         colCodigoEmailP.setCellValueFactory(new PropertyValueFactory<EmailProveedor , Integer>("codigoEmailProveedor"));
-        colEmailP.setCellValueFactory(new PropertyValueFactory<EmailProveedor , String>("emailProveedor"));
+        colEmailP.setCellValueFactory(new PropertyValueFactory<EmailProveedor , String>("emailproveedor"));
         colDescripcion.setCellValueFactory(new PropertyValueFactory<EmailProveedor , String>("descripcion"));
-        colCodigoP.setCellValueFactory(new PropertyValueFactory<EmailProveedor , String>("codigoProveedor"));
+        colCodigoP.setCellValueFactory(new PropertyValueFactory<EmailProveedor , Integer>("codigoProveedor"));
     }
     
     public void seleccionarElemento() {

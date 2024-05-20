@@ -5,17 +5,16 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="761.0" prefWidth="1313.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="org.emiliolux.controller.DetalleFacturaController">
+<AnchorPane id="AnchorPane" prefHeight="761.0" prefWidth="1313.0" stylesheets="@../resource/FrescoExpressCSS.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.emiliolux.controller.DetalleFacturaController">
    <children>
       <ImageView fitHeight="772.0" fitWidth="1505.0" layoutX="-11.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/MenuDetalleF.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnRegresar" layoutX="38.0" layoutY="651.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="68.0" prefWidth="94.0">
+      <Button fx:id="btnRegresar" layoutX="23.0" layoutY="660.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="76.0" prefWidth="126.0">
          <graphic>
-            <ImageView fitHeight="55.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="67.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/Regresar.png" />
                </image>

@@ -5,14 +5,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="761.0" prefWidth="1323.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.emiliolux.controller.EmpleadoController">
+<AnchorPane id="AnchorPane" prefHeight="761.0" prefWidth="1323.0" stylesheets="@../resource/FrescoExpressCSS.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.emiliolux.controller.EmpleadoController">
    <children>
       <ImageView fitHeight="775.0" fitWidth="1330.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/MenuEmpleados.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnRegresar" layoutX="67.0" layoutY="511.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="99.0" prefWidth="118.0">
+      <Button fx:id="btnRegresar" layoutX="34.0" layoutY="614.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="99.0" prefWidth="118.0">
          <graphic>
             <ImageView fitHeight="77.0" fitWidth="81.0" pickOnBounds="true" preserveRatio="true">
                <image>
