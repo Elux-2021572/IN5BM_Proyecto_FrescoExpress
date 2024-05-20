@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.emiliolux.controller.DetalleCompraController;
+import org.emiliolux.controller.DetalleFacturaController;
 import org.emiliolux.controller.MenuClientesController;
 import org.emiliolux.controller.MenuComprasController;
 import org.emiliolux.controller.MenuPrincipalController;
@@ -116,6 +118,24 @@ public class Principal extends Application {
             productoView.setEscenarioPrincipal(this);
         
         }catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+    }
+    
+    public void menuDetalleCompraView(){
+        try{
+            DetalleCompraController DetalleCompra = (DetalleCompraController) cambiarEscena("DetalleCompra.fxml",1323,761);
+            DetalleCompra.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            System.out.println(e.getStackTrace());
+        }
+    }
+    
+    public void menuDetalleFacturaView(){
+        try{
+            DetalleFacturaController  menuDetalleFacturaView = (DetalleFacturaController) cambiarEscena("DetalleFacturaView.fxml", 1323, 761);
+            menuDetalleFacturaView.setEscenarioPrincipal(this);
+        }catch(Exception e){
             System.out.println(e.getStackTrace());
         }
     }
