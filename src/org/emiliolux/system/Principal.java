@@ -37,8 +37,8 @@ public class Principal extends Application {
     @Override
     public void start(Stage escenarioPrincipal) throws Exception {
         this.escenarioPrincipal = escenarioPrincipal;
-        this.escenarioPrincipal.setTitle("Fresco Express");
-        escenarioPrincipal.getIcons().add(new Image(Principal.class.getResourceAsStream("/org/emiliolux/images/LogoExpress.png")));
+        this.escenarioPrincipal.setTitle("FRESCO EXPRESS");
+        escenarioPrincipal.getIcons().add(new Image(Principal.class.getResourceAsStream("/org/emiliolux/images/LogoExpress sin fondo.png")));
         menuPrincipalView();
         escenarioPrincipal.show();
     }

@@ -193,7 +193,6 @@ public class ProductosController implements Initializable {
     
     public Proveedores buscarProveedor(int codigoProveedor){
         Proveedores result=null;
-        
         try{
            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_buscarProveedor(?)}");
            procedimiento.setInt(1, codigoProveedor);
@@ -217,6 +216,8 @@ public class ProductosController implements Initializable {
         
         return result;
     }
+    
+    
     public ObservableList<Productos> getProducto() {
         ArrayList<Productos> lista = new ArrayList<Productos>();
         try {

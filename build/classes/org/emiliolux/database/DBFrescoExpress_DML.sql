@@ -250,6 +250,13 @@ begin
 end$$
 delimiter ;
 
+CALL sp_agregarCargoEmpleado('Gerente General', 'gestión general');
+CALL sp_agregarCargoEmpleado('Jefe de Ventas', 'departamento ventas');
+CALL sp_agregarCargoEmpleado('Analista de Sistemas', 'gestión general');
+CALL sp_agregarCargoEmpleado('Asistente Administrativo', 'tareas administrativas');
+CALL sp_agregarCargoEmpleado('Contador', 'finanzas');
+
+
 -- SP para listar todos los cargos de empleados
 delimiter $$
 create procedure sp_listarCargosEmpleado()
@@ -474,13 +481,6 @@ DELIMITER $$
 CREATE PROCEDURE sp_eliminarEmailProveedor(IN _codigoEmailProveedor INT)
 BEGIN
     DELETE FROM EmailProveedor WHERE codigoEmailProveedor = _codigoEmailProveedor;
-END$$
-DELIMITER ;
-
-DELIMITER $$
-CREATE PROCEDURE sp_buscarEmailProveedor(IN _codigoEmailProveedor INT)
-BEGIN
-    SELECT * FROM EmailProveedor WHERE codigoEmailProveedor = _codigoEmailProveedor;
 END$$
 DELIMITER ;
 

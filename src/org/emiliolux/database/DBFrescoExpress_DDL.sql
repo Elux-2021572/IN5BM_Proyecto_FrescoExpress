@@ -111,7 +111,6 @@ turno varchar(15),
 codigoCargoEmpleado int,
 PRIMARY KEY PK_codigoEmpleado (codigoEmpleado),
 FOREIGN KEY (codigoCargoEmpleado) REFERENCES CargoEmpleado(codigoCargoEmpleado)
-
 );
 
 create table Factura(
