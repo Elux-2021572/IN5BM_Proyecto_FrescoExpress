@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="761.0" prefWidth="1323.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="org.emiliolux.controller.TelefonoProveedorController">
+   <children>
+      <ImageView fitHeight="761.0" fitWidth="1472.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/MenuTelefonoP.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnRegresar" layoutX="33.0" layoutY="636.0" mnemonicParsing="false" onAction="#handleButtonAction">
+         <graphic>
+            <ImageView fitHeight="106.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Regresar.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

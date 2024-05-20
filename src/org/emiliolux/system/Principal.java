@@ -11,6 +11,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.emiliolux.controller.DetalleCompraController;
 import org.emiliolux.controller.DetalleFacturaController;
+import org.emiliolux.controller.EmailProveedorController;
+import org.emiliolux.controller.EmpleadoController;
+import org.emiliolux.controller.FacturaController;
 import org.emiliolux.controller.MenuClientesController;
 import org.emiliolux.controller.MenuComprasController;
 import org.emiliolux.controller.MenuPrincipalController;
@@ -18,6 +21,7 @@ import org.emiliolux.controller.MenuProgramadorController;
 import org.emiliolux.controller.MenuProveedoresController;
 import org.emiliolux.controller.MenuTipoProductoController;
 import org.emiliolux.controller.ProductosController;
+import org.emiliolux.controller.TelefonoProveedorController;
 
 /**
  * Documentacion Nombre completo:Emilio José Lux Zapeta
@@ -139,6 +143,43 @@ public class Principal extends Application {
             System.out.println(e.getStackTrace());
         }
     }
+    
+    public void menuFacturaView(){
+        try{
+            FacturaController menuFacturaView = (FacturaController) cambiarEscena("FacturaView.fxml" , 1323,761);
+            menuFacturaView.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            System.out.println(e.getStackTrace());
+        }
+    }
+    
+    public void menuEmpleadoView(){
+        try{
+            EmpleadoController menuEmpleadoView = (EmpleadoController)cambiarEscena("EmpleadoView.fxml" ,1323, 761);
+            menuEmpleadoView.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            System.out.println(e.getStackTrace());
+        }
+    }
+    
+    public void menuTelefonoProView(){
+        try{
+            TelefonoProveedorController menuTelefonoProView =(TelefonoProveedorController)cambiarEscena("TelefonoProveedorView.fxml" , 1323, 761);
+            menuTelefonoProView.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            System.out.println(e.getStackTrace());
+        }
+    }
+    
+    public void menuEmailProView(){
+        try{
+            EmailProveedorController menuEmailProView =(EmailProveedorController)cambiarEscena("EmailProveedorView.fxml" , 1323, 761);
+            menuEmailProView.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            System.out.println(e.getStackTrace());
+        }
+    }
+    
     
     
     public static void main(String[] args) {

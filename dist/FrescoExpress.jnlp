@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="FrescoExpress.jar" size="6585126" download="eager" />
+    <jar href="FrescoExpress.jar" size="6591501" download="eager" />
     <jar href="lib\mysql-connector-java-8.0.12.jar" size="2020431" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="org.emiliolux.system.Principal"  name="FrescoExpress" />
