@@ -19,50 +19,60 @@
         <menus>
           <Menu mnemonicParsing="false" text="Modulos">
             <items>
-              <MenuItem fx:id="btnMenuClientes" mnemonicParsing="false" onAction="#handleButtonAction" text="Clientes" />
-                  <MenuItem fx:id="btnMenuCompras" mnemonicParsing="false" onAction="#handleButtonAction" text="Compras" />
-                  <MenuItem fx:id="btnMenuProveedores" mnemonicParsing="false" onAction="#handleButtonAction" text="Proveedores" />
-                  <MenuItem fx:id="btnMenuTipoProducto" mnemonicParsing="false" onAction="#handleButtonAction" text="Tipo de Producto" />
-                  <MenuItem fx:id="btnMenuProducto" mnemonicParsing="false" onAction="#handleButtonAction" text="Producto" />
-                  <MenuItem fx:id="btnMenuDetalleC" mnemonicParsing="false" onAction="#handleButtonAction" text="Detalle Compra" />
                   <MenuItem fx:id="btnMenuDetalleF" mnemonicParsing="false" onAction="#handleButtonAction" text="Detalle Factura" />
                   <MenuItem fx:id="btnMenuFactura" mnemonicParsing="false" onAction="#handleButtonAction" text="Factura" />
                   <MenuItem fx:id="btnMenuEmpleado" mnemonicParsing="false" onAction="#handleButtonAction" text="Empleado" />
-                  <MenuItem fx:id="btnMenuTelefonoP" mnemonicParsing="false" onAction="#handleButtonAction" text="Telefono Proveedor" />
-                  <MenuItem fx:id="btnMenuEmailP" mnemonicParsing="false" onAction="#handleButtonAction" text="Email Proveedor" />
+              <MenuItem fx:id="btnMenuClientes" mnemonicParsing="false" onAction="#handleButtonAction" text="Clientes" />
             </items>
                <graphic>
-                  <ImageView fitHeight="17.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="27.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/Modulos.png" />
                      </image>
                   </ImageView>
                </graphic>
           </Menu>
-          <Menu mnemonicParsing="false" text="Reportes">
+          <Menu mnemonicParsing="false" text="Compra y Producto">
             <items>
-              <MenuItem mnemonicParsing="false" text="Compra y Venta " />
+                  <MenuItem fx:id="btnMenuCompras" mnemonicParsing="false" onAction="#handleButtonAction" text="Compras" />
+                  <MenuItem fx:id="btnMenuDetalleC" mnemonicParsing="false" onAction="#handleButtonAction" text="Detalle Compra" />
+                  <MenuItem fx:id="btnMenuProducto" mnemonicParsing="false" onAction="#handleButtonAction" text="Producto" />
+                  <MenuItem fx:id="btnMenuTipoProducto" mnemonicParsing="false" onAction="#handleButtonAction" text="Tipo de Producto" />
             </items>
                <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="29.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/Reportes.png" />
+                        <Image url="@../images/Compra.png" />
                      </image>
                   </ImageView>
                </graphic>
           </Menu>
-          <Menu mnemonicParsing="false" text="Acerca de">
+          <Menu mnemonicParsing="false" text="Proveedor">
             <items>
-              <MenuItem fx:id="btnMenuProgramador" mnemonicParsing="false" onAction="#handleButtonAction" text="Programador" />
+                  <MenuItem fx:id="btnMenuProveedores" mnemonicParsing="false" onAction="#handleButtonAction" text="Proveedores" />
+                  <MenuItem fx:id="btnMenuTelefonoP" mnemonicParsing="false" onAction="#handleButtonAction" text="Telefono Proveedor" />
+                  <MenuItem fx:id="btnMenuEmailP" mnemonicParsing="false" onAction="#handleButtonAction" text="Email Proveedor" />
             </items>
                <graphic>
-                  <ImageView fitHeight="19.0" fitWidth="87.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Proveedor.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Acerca de">
+               <items>
+                  <MenuItem fx:id="btnMenuProgramador" mnemonicParsing="false" onAction="#handleButtonAction" text="Programador" />
+               </items>
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/AcercaDe.png" />
                      </image>
                   </ImageView>
                </graphic>
-          </Menu>
+            </Menu>
         </menus>
          <stylesheets>
             <URL value="@../resource/FrescoExpress.css" />
