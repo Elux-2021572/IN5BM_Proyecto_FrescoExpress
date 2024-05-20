@@ -10,6 +10,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import org.emiliolux.system.Principal;
 
 /**
@@ -22,10 +27,63 @@ public class TelefonoProveedorController implements Initializable {
     private Principal escenarioPrincipal;
     @FXML
     private Button btnRegresar;
+    
+    @FXML
+    private TableView tblTelefonoPro;
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private TableColumn colcodigoTelefonoP;
+
+    @FXML
+    private TableColumn colnumeroPr;
+
+    @FXML
+    private TableColumn colnumeroS;
+
+    @FXML
+    private TableColumn colObservaciones;
+
+    @FXML
+    private TableColumn colcodigoProveedor;
+
+    @FXML
+    private Button btnAgregar;
+
+    @FXML
+    private ImageView imgAgregar;
+
+    @FXML
+    private Button btnEliminar;
+
+    @FXML
+    private ImageView imgEliminar;
+
+    @FXML
+    private Button btnEditar;
+
+    @FXML
+    private ImageView imgEditar;
+
+    @FXML
+    private Button btnReportes;
+
+    @FXML
+    private ImageView imgReportes;
+
+    @FXML
+    private TextField txtCodigoTelefonoP;
+
+    @FXML
+    private TextField txtNumeroP;
+
+    @FXML
+    private TextField txtNumeroS;
+
+    @FXML
+    private TextField txtObservaciones;
+
+    @FXML
+    private ComboBox cmbCodigoProveedor;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
