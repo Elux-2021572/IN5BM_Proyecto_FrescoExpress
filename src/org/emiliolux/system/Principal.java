@@ -15,6 +15,7 @@ import org.emiliolux.controller.MenuPrincipalController;
 import org.emiliolux.controller.MenuProgramadorController;
 import org.emiliolux.controller.MenuProveedoresController;
 import org.emiliolux.controller.MenuTipoProductoController;
+import org.emiliolux.controller.ProductosController;
 
 /**
  * Documentacion Nombre completo:Emilio José Lux Zapeta
@@ -108,7 +109,18 @@ public class Principal extends Application {
             System.out.println(e.getStackTrace());
         }
     }
-
+    
+    public void menuProductoView(){
+        try{
+            ProductosController productoView = (ProductosController) cambiarEscena("ProductosView.fxml", 1323, 761);
+            productoView.setEscenarioPrincipal(this);
+        
+        }catch (Exception e){
+            System.out.println(e.getStackTrace());
+        }
+    }
+    
+    
     public static void main(String[] args) {
         launch(args);
     }
