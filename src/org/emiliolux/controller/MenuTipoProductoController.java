@@ -23,7 +23,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javax.swing.JOptionPane;
-import org.emiliolux.bean.Proveedores;
 import org.emiliolux.bean.TipoProducto;
 import org.emiliolux.db.Conexion;
 import org.emiliolux.system.Principal;

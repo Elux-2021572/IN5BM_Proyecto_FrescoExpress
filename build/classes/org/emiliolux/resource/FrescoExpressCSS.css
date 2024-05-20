@@ -18,41 +18,40 @@
 .button:hover {
     -fx-background-color: #FFA500;
     -fx-font-size: 22px;
-    -fx-effect: dropshadow(three-pass-box, black, 20, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, black, 20, 0.5, 0, 0);
 }
 
 .button2:hover {
     -fx-background-color: #75AADB;
     -fx-font-size: 22px;
+    -fx-effect: dropshadow(three-pass-box, black, 10, 0.5, 0, 0);
 }
 
 .table-view .column-header,
 .table-view .column-header-background.filler {
-    -fx-cell-size: 20;
-    -fx-background-color: #FFA500;    
+    -fx-cell-size: 20px;
+    -fx-background-color: #75AADB;    
 }
 
 .table-row-cell:selected {
     -fx-background-color: #66CC99;
 }
 
-.table-view .column-header,
 .table-view .column-background.filler {
-    -fx-cell-size: 20;
+    -fx-cell-size: 20px;
     -fx-background-color: #75AADB;
 }
 
 .table-row-cell:selected {
-    -fx-background-color: #FFA500;
+    -fx-background-color: #66CC99;
 }
 
-.text-field{
+.text-field {
     -fx-background-color: #FFFFFF;
-
 }
 
-.label{
-    -fx-font-family: "Monospace  ";
+.label {
+    -fx-font-family: "Monospace";
     -fx-font-size: 16px;
-    -fx-font-style: Monospace  ;
+    -fx-font-style: normal;
 }

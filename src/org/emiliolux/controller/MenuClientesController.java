@@ -141,7 +141,7 @@ public class MenuClientesController implements Initializable {
         }
         return listarClientes = FXCollections.observableList(lista);
     }
-    
+
     public void activarControles() {
         txtclienteID.setEditable(true);
         txtnitCliente.setEditable(true);
@@ -162,7 +162,6 @@ public class MenuClientesController implements Initializable {
         txtcorreoCliente.setEditable(false);
     }
 
-
     public void limpiarControles() {
         txtclienteID.clear();
         txtnitCliente.clear();
@@ -177,13 +176,14 @@ public class MenuClientesController implements Initializable {
         switch (tipoDeOperaciones) {
             case NINGUNO:
                 activarControles();
-                btnAgregarCliente.setText("Guardar");
                 btnEliminarCliente.setText("Cancelar");
-                imgEliminar.setImage(new Image("/org/emiliolux/images/Cancelar.png"));
+                btnAgregarCliente.setText("Guardar");
                 imgAgregar.setImage(new Image("/org/emiliolux/images/Guardar.png"));
+                imgEliminar.setImage(new Image("/org/emiliolux/images/Cancelar.png"));
                 txtclienteID.setEditable(false);
-                btnEditarCliente.setDisable(true);
                 btnReporte.setDisable(true);
+                btnEditarCliente.setDisable(true);
+                btnRegresar.setDisable(true);
 
                 tipoDeOperaciones = operaciones.ACTUALIZAR;
                 break;
@@ -194,8 +194,9 @@ public class MenuClientesController implements Initializable {
                 limpiarControles();
                 btnAgregarCliente.setText("Agregar");
                 btnEliminarCliente.setText("Eliminar");
-                imgAgregar.setImage(new Image("/org/emiliolux/images/Agregar.png"));
-                imgEliminar.setImage(new Image("/org/emiliolux/images/Eliminar.png"));
+                imgAgregar.setImage(new Image("/org/emiliolux/images/AgregarClientes.png"));
+                imgEliminar.setImage(new Image("/org/emiliolux/images/EliminarClientes.png"));
+                btnRegresar.setDisable(false);
                 txtclienteID.setEditable(true);
                 btnEditarCliente.setDisable(false);
                 btnReporte.setDisable(false);
@@ -235,10 +236,11 @@ public class MenuClientesController implements Initializable {
                 limpiarControles();
                 btnAgregarCliente.setText("Agregar");
                 btnEliminarCliente.setText("Eliminar");
-                btnEditarCliente.setDisable(false);
-                btnReporte.setDisable(false);
                 imgAgregar.setImage((new Image("/org/emiliolux/images/Agregar.png")));
                 imgEliminar.setImage((new Image("/org/emiliolux/images/Eliminar.png")));
+                btnEditarCliente.setDisable(false);
+                btnReporte.setDisable(false);
+                btnRegresar.setDisable(false);
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
             default:
@@ -272,6 +274,7 @@ public class MenuClientesController implements Initializable {
                     btnEliminarCliente.setDisable(true);
                     imgEditar.setImage(new Image("/org/emiliolux/images/Guardar.png"));
                     imgReporte.setImage(new Image("/org/emiliolux/images/Cancelar.png"));
+                    btnRegresar.setDisable(true);
                     activarControles();
                     txtclienteID.setEditable(false);
                     tipoDeOperaciones = operaciones.ACTUALIZAR;
@@ -282,12 +285,13 @@ public class MenuClientesController implements Initializable {
                 }
             case ACTUALIZAR:
                 actualizarCliente();
-                btnEditarCliente.setText("Editar");
+                imgReporte.setImage(new Image("/org/emiliolux/images/ReportesClientes.png"));
+                imgEditar.setImage(new Image("/org/emiliolux/images/Actualizar.png"));
                 btnReporte.setText("Reporte");
+                btnEditarCliente.setText("Editar");
                 btnAgregarCliente.setDisable(false);
                 btnEliminarCliente.setDisable(false);
-                imgEditar.setImage(new Image("/org/emiliolux/images/Actualizar.png"));
-                imgReporte.setImage(new Image("/org/emiliolux/images/ReportesClientes.png"));
+                    btnRegresar.setDisable(false);
                 desactivarControles();
                 limpiarControles();
                 tipoDeOperaciones = operaciones.NINGUNO;
@@ -298,8 +302,6 @@ public class MenuClientesController implements Initializable {
     }
 
     public void actualizarCliente() {
-        try {
-            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_actualizarCliente(?,?,?,?,?,?,?)}");
             Clientes registro = (Clientes) tblCliente.getSelectionModel().getSelectedItem();
             registro.setNitCliente(txtnitCliente.getText());
             registro.setNombresCliente(txtnombresCliente.getText());
@@ -307,6 +309,8 @@ public class MenuClientesController implements Initializable {
             registro.setDireccionCliente(txtdireccionCliente.getText());
             registro.setTelefonoCliente(txttelefonoCliente.getText());
             registro.setCorreoCliente(txtcorreoCliente.getText());
+        try {
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_actualizarCliente(?,?,?,?,?,?,?)}");
             procedimiento.setInt(1, registro.getClienteID());
             procedimiento.setString(2, registro.getNitCliente());
             procedimiento.setString(3, registro.getNombresCliente());
@@ -325,10 +329,11 @@ public class MenuClientesController implements Initializable {
             case ACTUALIZAR:
                 imgEditar.setImage(new Image("/org/emiliolux/images/Editar.png"));
                 imgReporte.setImage(new Image("/org/emiliolux/images/ReportesClientes.png"));
-                btnEditarCliente.setText("Editar");
                 btnReporte.setText("Reporte");
+                btnEditarCliente.setText("Editar");
                 btnAgregarCliente.setDisable(false);
                 btnEliminarCliente.setDisable(false);
+                btnRegresar.setDisable(false);
                 desactivarControles();
                 limpiarControles();
                 tipoDeOperaciones = operaciones.NINGUNO;
