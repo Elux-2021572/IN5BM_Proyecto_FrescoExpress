@@ -83,5 +83,10 @@ public class Clientes {
     public void setCorreoCliente(String correoCliente) {
         this.correoCliente = correoCliente;
     }
+    
+    @Override 
+    public String toString(){
+        return getNombresCliente() + "  |  " + getTelefonoCliente();
+    }
 
 }

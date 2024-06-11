@@ -40,7 +40,7 @@
             <Label text="descripcionCargo" GridPane.columnIndex="3" />
          </children>
       </GridPane>
-      <TableView fx:id="tblCargoEMpleado" layoutX="231.0" layoutY="282.0" prefHeight="307.0" prefWidth="813.0">
+      <TableView fx:id="tblCargoEMpleado" layoutX="231.0" layoutY="282.0" onMouseClicked="#seleccionarElemento" prefHeight="307.0" prefWidth="813.0">
         <columns>
           <TableColumn fx:id="colCodigoCargoE" prefWidth="254.4000244140625" text="codigoCargoEmpleado" />
           <TableColumn fx:id="colNombreC" prefWidth="279.20001220703125" text="nombreCargo" />

@@ -281,6 +281,8 @@ begin
 end$$
 delimiter ;
 
+call sp_buscarCargoEmpleado(1);
+
 -- SP para actualizar la información de un cargo de empleado
 delimiter $$
 create procedure sp_actualizarCargoEmpleado(in _codigoCargoEmpleado int, in _nombreCargo varchar(45), in _descripcionCargo varchar(45))

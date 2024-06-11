@@ -9,6 +9,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,6 +30,7 @@ import org.emiliolux.bean.Productos;
 import org.emiliolux.bean.Proveedores;
 import org.emiliolux.bean.TipoProducto;
 import org.emiliolux.db.Conexion;
+import org.emiliolux.report.GenerarReportes;
 import org.emiliolux.system.Principal;
 
 /**
@@ -36,9 +39,9 @@ import org.emiliolux.system.Principal;
  * @author Emilio
  */
 public class ProductosController implements Initializable {
-    
+
     private Principal escenarioPrincipal;
-    
+
     private enum operaciones {
         AGREGAR, ELIMINAR, EDITAR, ACTUALIZAR, CANCELAR, NINGUNO
     }
@@ -47,15 +50,15 @@ public class ProductosController implements Initializable {
     private ObservableList<Productos> listarProductos;
     private ObservableList<Proveedores> listaProveedores;
     private ObservableList<TipoProducto> listaTipoProducto;
-    
-    @FXML
-    private Button btnRegresar;
-    
-  @FXML
-    private ComboBox <Proveedores> cmbcodigoProveedor;
 
     @FXML
-    private ComboBox <TipoProducto>cmbcodigoTipoProducto;
+    private Button btnRegresar;
+
+    @FXML
+    private ComboBox<Proveedores> cmbcodigoProveedor;
+
+    @FXML
+    private ComboBox<TipoProducto> cmbcodigoTipoProducto;
 
     @FXML
     private TextField txtprecioMayor;
@@ -79,7 +82,7 @@ public class ProductosController implements Initializable {
     private TextField txtprecioDocena;
 
     @FXML
-    private TableView  tblProductos;
+    private TableView tblProductos;
 
     @FXML
     private TableColumn colcodigoProducto;
@@ -171,53 +174,52 @@ public class ProductosController implements Initializable {
         txtprecioMayor.setText(String.valueOf(((Productos) tblProductos.getSelectionModel().getSelectedItem()).getPrecioMayor()));
         txtimagenProducto.setText(((Productos) tblProductos.getSelectionModel().getSelectedItem()).getImagenProducto());
         txtexistencia.setText(String.valueOf(((Productos) tblProductos.getSelectionModel().getSelectedItem()).getExistencia()));
-        cmbcodigoTipoProducto.getSelectionModel().select(buscarTipoProducto(((Productos)tblProductos.getSelectionModel().getSelectedItem()).getCodigoTipoProducto()));
-        cmbcodigoProveedor.getSelectionModel().select(buscarProveedor(((Productos)tblProductos.getSelectionModel().getSelectedItem()).getCodigoProveedor()));
+        cmbcodigoTipoProducto.getSelectionModel().select(buscarTipoProducto(((Productos) tblProductos.getSelectionModel().getSelectedItem()).getCodigoTipoProducto()));
+        cmbcodigoProveedor.getSelectionModel().select(buscarProveedor(((Productos) tblProductos.getSelectionModel().getSelectedItem()).getCodigoProveedor()));
         //txtexistencia.setText(String.valueOf(((Productos) tblProductos.getSelectionModel().getSelectedItem()).getCodigoProveedor()));
     }
-    
-    public TipoProducto  buscarTipoProducto(int codigoTipoProducto ){
+
+    public TipoProducto buscarTipoProducto(int codigoTipoProducto) {
         TipoProducto resultado = null;
-        try{
+        try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_buscarProducto (?)}");
             procedimiento.setInt(1, codigoTipoProducto);
             ResultSet registro = procedimiento.executeQuery();
-            while(registro.next()){
-            resultado = new TipoProducto(registro.getInt("codigoTipoProducto"), ("descripcionProducto") );
-        }
-        }catch(Exception e){
+            while (registro.next()) {
+                resultado = new TipoProducto(registro.getInt("codigoTipoProducto"), ("descripcionProducto"));
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return resultado;
     }
-    
-    public Proveedores buscarProveedor(int codigoProveedor){
-        Proveedores result=null;
-        try{
-           PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_buscarProveedor(?)}");
-           procedimiento.setInt(1, codigoProveedor);
-           
-           ResultSet registro = procedimiento.executeQuery();
-           
-           while(registro.next()){
-               result= new Proveedores(registro.getInt("codigoProveedor"),
-               registro.getString("codigoProveedor"),
-               registro.getString("nombresProveedor"),
-               registro.getString("apellidosProveedor"),
-               registro.getString("direccionProveedor"),
-               registro.getString("razonSocial"),
-               registro.getString("contactoPrincipal"),
-               registro.getString("paginaWeb"));
 
-           }
-        }catch(Exception e){
+    public Proveedores buscarProveedor(int codigoProveedor) {
+        Proveedores result = null;
+        try {
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_buscarProveedor(?)}");
+            procedimiento.setInt(1, codigoProveedor);
+
+            ResultSet registro = procedimiento.executeQuery();
+
+            while (registro.next()) {
+                result = new Proveedores(registro.getInt("codigoProveedor"),
+                        registro.getString("codigoProveedor"),
+                        registro.getString("nombresProveedor"),
+                        registro.getString("apellidosProveedor"),
+                        registro.getString("direccionProveedor"),
+                        registro.getString("razonSocial"),
+                        registro.getString("contactoPrincipal"),
+                        registro.getString("paginaWeb"));
+
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         return result;
     }
-    
-    
+
     public ObservableList<Productos> getProducto() {
         ArrayList<Productos> lista = new ArrayList<Productos>();
         try {
@@ -302,7 +304,7 @@ public class ProductosController implements Initializable {
                 btnAgregar.setText("Agregar");
                 btnEliminar.setText("Eliminar");
                 imgAgregar.setImage(new Image("/org/emiliolux/images/AgregarClientes.png"));
-                imgEliminar.setImage(new Image("/org/emiliolux/images/EliminarClientes.png"));  
+                imgEliminar.setImage(new Image("/org/emiliolux/images/EliminarClientes.png"));
                 btnRegresar.setDisable(false);
                 btnReportes.setDisable(false);
                 btnEditar.setDisable(false);
@@ -339,7 +341,7 @@ public class ProductosController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+
     public void eliminar() {
         switch (tipoDeOperaciones) {
             case ACTUALIZAR:
@@ -348,7 +350,7 @@ public class ProductosController implements Initializable {
                 btnAgregar.setText("Agregar");
                 btnEliminar.setText("Eliminar");
                 imgAgregar.setImage(new Image("/org/emiliolux/images/Agregar.png"));
-                imgEliminar.setImage(new Image("/org/emiliolux/images/Eliminar.png")); 
+                imgEliminar.setImage(new Image("/org/emiliolux/images/Eliminar.png"));
                 btnReportes.setDisable(false);
                 btnEditar.setDisable(false);
                 btnRegresar.setDisable(false);
@@ -370,16 +372,16 @@ public class ProductosController implements Initializable {
                             e.printStackTrace();
                         }
 
-                } else {
-                    JOptionPane.showMessageDialog(null, "Seleccione un Producto para eliminar");
-                }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Seleccione un Producto para eliminar");
+                    }
                     cargarDatos();
-                break;
+                    break;
                 }
         }
     }
-    
-    public void editar(){
+
+    public void editar() {
         switch (tipoDeOperaciones) {
             case NINGUNO:
                 if (tblProductos.getSelectionModel().getSelectedItem() != null) {
@@ -401,7 +403,7 @@ public class ProductosController implements Initializable {
             case ACTUALIZAR:
                 actualizar();
                 imgReportes.setImage(new Image("/org/emiliolux/images/ReportesClientes.png"));
-                imgEditar.setImage(new Image("/org/emiliolux/images/Editar.png"));                
+                imgEditar.setImage(new Image("/org/emiliolux/images/Editar.png"));
                 btnReportes.setText("Reporte");
                 btnEditar.setText("Editar");
                 btnAgregar.setDisable(false);
@@ -414,10 +416,9 @@ public class ProductosController implements Initializable {
                 break;
         }
     }
-    
 
-    public void actualizar(){
-        Productos registro = (Productos)tblProductos.getSelectionModel().getSelectedItem();
+    public void actualizar() {
+        Productos registro = (Productos) tblProductos.getSelectionModel().getSelectedItem();
         registro.setDescripcionProducto(txtdescripcionProducto.getText());
         registro.setPrecioUnitario(Integer.parseInt(txtprecioUnitario.getText()));
         registro.setPrecioDocena(Integer.parseInt(txtprecioDocena.getText()));
@@ -426,7 +427,7 @@ public class ProductosController implements Initializable {
         registro.setExistencia(Integer.parseInt(txtexistencia.getText()));
         registro.setCodigoProveedor(((Proveedores) cmbcodigoProveedor.getSelectionModel().getSelectedItem()).getCodigoProveedor());
         registro.setCodigoTipoProducto(((TipoProducto) cmbcodigoTipoProducto.getSelectionModel().getSelectedItem()).getCodigoTipoProducto());
-        try{
+        try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_actualizarProducto( ?, ?, ?, ?, ?, ?, ?, ? , ?)}");
             procedimiento.setString(1, registro.getCodigoProducto());
             procedimiento.setString(2, registro.getDescripcionProducto());
@@ -438,13 +439,13 @@ public class ProductosController implements Initializable {
             procedimiento.setInt(8, registro.getCodigoTipoProducto());
             procedimiento.setInt(9, registro.getCodigoProveedor());
             procedimiento.execute();
-            
+
             listarProductos.add(registro);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
+
     public void reporte() {
         switch (tipoDeOperaciones) {
             case ACTUALIZAR:
@@ -460,10 +461,18 @@ public class ProductosController implements Initializable {
                 tipoDeOperaciones = operaciones.NINGUNO;
                 cargarDatos();
             case NINGUNO:
+                imprimirReporte();
                 break;
         }
     }
-    
+
+    public void imprimirReporte() {
+        Map parametros = new HashMap();
+        parametros.hashCode();
+        parametros.put("codigoProducto", null);
+        GenerarReportes.mostrarReportes("ReporteProductos.jasper", "Reporte de Productos", parametros);
+    }
+
     public void DesactivarControles() {
         txtcodigoProducto.setEditable(false);
         txtdescripcionProducto.setEditable(false);
@@ -497,8 +506,8 @@ public class ProductosController implements Initializable {
         txtimagenProducto.clear();
         txtexistencia.clear();
         tblProductos.getSelectionModel().getSelectedItem();
-    cmbcodigoTipoProducto.getSelectionModel().clearSelection();
-    cmbcodigoProveedor.getSelectionModel().clearSelection();
+        cmbcodigoTipoProducto.getSelectionModel().clearSelection();
+        cmbcodigoProveedor.getSelectionModel().clearSelection();
     }
 
     @FXML

@@ -6,7 +6,11 @@
 package org.emiliolux.controller;
 
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,8 +19,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import org.emiliolux.bean.CargoEmpleado;
+import org.emiliolux.db.Conexion;
 import org.emiliolux.system.Principal;
 
 /**
@@ -83,7 +89,7 @@ public class CargoEmpleadoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        cargarDatos();
     }    
     
         public Principal getEscenarioPrincipal() {
@@ -92,6 +98,55 @@ public class CargoEmpleadoController implements Initializable {
 
     public void setEscenarioPrincipal(Principal escenarioPrincipal) {
         this.escenarioPrincipal = escenarioPrincipal;
+    }
+    
+    public void cargarDatos() {
+        desactivarControles();
+        tblCargoEMpleado.setItems(getCargoEmpleado());
+        colCodigoCargoE.setCellValueFactory(new PropertyValueFactory<CargoEmpleado, Integer>("codigoCargoEmpleado"));
+        colNombreC.setCellValueFactory(new PropertyValueFactory<CargoEmpleado, String>("nombreCargo"));
+        colDescripcionC.setCellValueFactory(new PropertyValueFactory<CargoEmpleado, String>("descripcionCargo"));
+    }
+    
+    public void seleccionarElemento() {
+        txtCodigoC.setText(String.valueOf(((CargoEmpleado) tblCargoEMpleado.getSelectionModel().getSelectedItem()).getCodigoCargoEmpleado()));
+        txtNombreC.setText(String.valueOf(((CargoEmpleado) tblCargoEMpleado.getSelectionModel().getSelectedItem()).getNombreCargo()));
+        txtDescripcionC.setText(String.valueOf(((CargoEmpleado) tblCargoEMpleado.getSelectionModel().getSelectedItem()).getDescripcionCargo()));
+    }
+    
+    public ObservableList<CargoEmpleado> getCargoEmpleado() {
+        ArrayList<CargoEmpleado> lista = new ArrayList<>();
+        try {
+            PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_listarCargosEmpleado()}");
+            ResultSet resultado = procedimiento.executeQuery();
+            while (resultado.next()) {
+                lista.add(new CargoEmpleado(resultado.getInt("codigoCargoEmpleado"),
+                        resultado.getString("nombreCargo"), 
+                        resultado.getString("descripcionCargo")
+                ));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return listarCargoEmpleado = FXCollections.observableList(lista);
+    }
+    
+    public void activarControles() {
+        txtCodigoC.setEditable(true);
+        txtNombreC.setEditable(true);
+        txtDescripcionC.setEditable(true);
+    }
+    
+    public void desactivarControles() {
+        txtCodigoC.setEditable(false);
+        txtNombreC.setEditable(false);
+        txtDescripcionC.setEditable(false);
+    }
+    
+    public void limpiarControles() {
+        txtCodigoC.clear();
+        txtNombreC.clear();
+        txtDescripcionC.clear();
     }
     
     @FXML

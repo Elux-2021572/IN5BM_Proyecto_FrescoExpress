@@ -99,6 +99,7 @@ public class MenuTipoProductoController implements Initializable {
         }
         return listaTipoProducto = FXCollections.observableList(lista);
     }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cargarDatos();

@@ -82,7 +82,7 @@ public class Principal extends Application {
     
     public void menuCargoEmpleadoView(){
         try{
-            CargoEmpleadoController CargoEmpleadoView = (CargoEmpleadoController) cambiarEscena("CargoEmpleadoView", 1074,618);
+            CargoEmpleadoController CargoEmpleadoView = (CargoEmpleadoController) cambiarEscena("CargoEmpleadoView.fxml", 1074,618);
             CargoEmpleadoView.setEscenarioPrincipal(this);
         }catch(Exception e){
             System.out.println(e.getStackTrace());

@@ -126,7 +126,6 @@ codigoEmpleado int,
 PRIMARY KEY PK_numeroDeFactura (numeroDeFactura),
 FOREIGN KEY (clienteID) REFERENCES Clientes(clienteID),
 FOREIGN KEY (codigoEmpleado) REFERENCES Empleados(codigoEmpleado)
-
 );
 
 create table DetalleFactura(

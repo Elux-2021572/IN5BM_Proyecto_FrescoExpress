@@ -4,6 +4,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +22,7 @@ import javafx.scene.image.ImageView;
 import javax.swing.JOptionPane;
 import org.emiliolux.bean.Proveedores;
 import org.emiliolux.db.Conexion;
+import org.emiliolux.report.GenerarReportes;
 import org.emiliolux.system.Principal;
 
 /**
@@ -376,7 +379,17 @@ public class MenuProveedoresController implements Initializable {
                 imgReportes.setImage(new Image("/org/emiliolux/images/ReportesClientes.png"));
                 tipoDeOperaciones = operaciones.NINGUNO;
                 break;
+            case NINGUNO:
+                imprimirReporte();
+                break;
         }
+    }
+    
+    public void imprimirReporte(){
+        Map parametros = new HashMap();
+        parametros.hashCode();
+        parametros.put("codigoProveedor", null);
+        GenerarReportes.mostrarReportes("ReporteProveedores.jasper", "Reporte de Proveedores", parametros);
     }
 
     @FXML

@@ -14,14 +14,14 @@ public class Factura {
     private int numeroDeFactura;
     private String estado;
     private double totalFactura;
-    private double fechaFactura;
+    private String fechaFactura;
     private int clienteID;
     private int codigoEmpleado;
 
     public Factura() {
     }
 
-    public Factura(int numeroDeFactura, String estado, double totalFactura, double fechaFactura, int clienteID, int codigoEmpleado) {
+    public Factura(int numeroDeFactura, String estado, double totalFactura, String fechaFactura, int clienteID, int codigoEmpleado) {
         this.numeroDeFactura = numeroDeFactura;
         this.estado = estado;
         this.totalFactura = totalFactura;
@@ -54,11 +54,11 @@ public class Factura {
         this.totalFactura = totalFactura;
     }
 
-    public double getFechaFactura() {
+    public String getFechaFactura() {
         return fechaFactura;
     }
 
-    public void setFechaFactura(double fechaFactura) {
+    public void setFechaFactura(String fechaFactura) {
         this.fechaFactura = fechaFactura;
     }
 
@@ -77,5 +77,7 @@ public class Factura {
     public void setCodigoEmpleado(int codigoEmpleado) {
         this.codigoEmpleado = codigoEmpleado;
     }
+    
+    
 
 }
