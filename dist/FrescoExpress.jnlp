@@ -8,8 +8,15 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="FrescoExpress.jar" size="6668656" download="eager" />
+    <jar href="FrescoExpress.jar" size="9913728" download="eager" />
+    <jar href="lib\commons-collections-3.2.1.jar" size="575389" download="eager" />
+    <jar href="lib\commons-digester-2.1.jar" size="196768" download="eager" />
+    <jar href="lib\commons-logging-1.1.jar" size="52592" download="eager" />
+    <jar href="lib\groovy-all-2.0.1.jar" size="6191960" download="eager" />
+    <jar href="lib\iText-2.1.7.js2.jar" size="1130575" download="eager" />
+    <jar href="lib\jasperreports-5.6.0.jar" size="4989676" download="eager" />
     <jar href="lib\mysql-connector-java-8.0.12.jar" size="2020431" download="eager" />
+    <jar href="lib\poi-3.7-20101029.jar" size="1675036" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="FrescoExpress" >
     <param name="requiredFXVersion" value="8.0+"/>

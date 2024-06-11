@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteCliente" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8fb763d2-9f6e-42d6-812d-64e4344ec9c1">
 	<property name="ireport.zoom" value="0.9090909090909091"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="668"/>
+	<property name="ireport.y" value="476"/>
 	<queryString>
 		<![CDATA[call sp_listarClientes()]]>
 	</queryString>
@@ -30,12 +30,8 @@
 	<background>
 		<band height="802" splitType="Stretch">
 			<image>
-				<reportElement x="0" y="0" width="555" height="782" uuid="109acccb-f5b3-4b53-a099-67b0a271cda2"/>
-				<imageExpression><![CDATA["C:\\Users\\emili\\OneDrive\\Desktop\\Repositorio\\IN5BM_Proyecto_FrescoExpress\\src\\org\\emiliolux\\images\\ReporteCliente.png"]]></imageExpression>
-			</image>
-			<image>
-				<reportElement x="0" y="722" width="61" height="60" uuid="ef1fec47-038c-42ec-8726-bc8fbaa3414c"/>
-				<imageExpression><![CDATA["C:\\Users\\emili\\OneDrive\\Desktop\\Repositorio\\IN5BM_Proyecto_FrescoExpress\\src\\org\\emiliolux\\images\\LogoExpress sin fondo.png"]]></imageExpression>
+				<reportElement x="0" y="16" width="555" height="775" uuid="f33de860-e906-4d44-9bfd-ab0fc9ff7853"/>
+				<imageExpression><![CDATA["C:\\Users\\emili\\Downloads\\IN5BM_Proyecto_FrescoExpress\\IN5BM_Proyecto_FrescoExpress\\src\\org\\emiliolux\\images\\ReporteCliente.png"]]></imageExpression>
 			</image>
 		</band>
 	</background>

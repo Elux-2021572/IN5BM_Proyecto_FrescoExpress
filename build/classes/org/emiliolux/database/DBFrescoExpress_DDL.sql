@@ -6,6 +6,9 @@ create database DBFrescoExpress;
 
 use DBFrescoExpress;
 
+-- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'admi';
+
+
 create table Clientes(
     clienteID int not null auto_increment,
     nitCliente varchar(10), 
@@ -137,4 +140,10 @@ FOREIGN KEY (numeroDeFactura) REFERENCES Factura(numeroDeFactura),
 FOREIGN KEY (codigoProducto) REFERENCES Productos(codigoProducto)
 
 );
+
+select * from DetalleFactura
+	join Factura on DetalleFactura.numeroDeFactura = Factura.numeroDeFactura
+    join clientes on Factura.clienteID = Clientes.clienteID
+    join Productos on DetalleFactura.codigoProducto = Productos.codigoProducto
+    where Factura.numeroDeFactura = 2; 
 

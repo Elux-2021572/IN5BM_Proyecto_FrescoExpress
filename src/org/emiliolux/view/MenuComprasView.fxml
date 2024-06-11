@@ -28,7 +28,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <TableView fx:id="tblCompras" layoutX="275.0" layoutY="328.0" prefHeight="308.0" prefWidth="864.0">
+      <TableView fx:id="tblCompras" layoutX="275.0" layoutY="328.0" onMouseClicked="#seleccionar" prefHeight="308.0" prefWidth="864.0">
         <columns>
           <TableColumn fx:id="colNumDoc" minWidth="15.0" prefWidth="215.0" text="numeroDocumento" />
           <TableColumn fx:id="colFechaDocumento" minWidth="15.0" prefWidth="215.0" text="fechaDocumento" />

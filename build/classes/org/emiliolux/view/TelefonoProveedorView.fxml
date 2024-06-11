@@ -29,7 +29,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <TableView fx:id="tblTelefonoPro" layoutX="261.0" layoutY="366.0" prefHeight="353.0" prefWidth="1020.0">
+      <TableView fx:id="tblTelefonoPro" layoutX="261.0" layoutY="366.0" onMouseClicked="#seleccionarElemento" prefHeight="353.0" prefWidth="1020.0">
         <columns>
           <TableColumn fx:id="colcodigoTelefonoP" minWidth="204.0" prefWidth="75.0" text="codigoTelefonoProveedor" />
           <TableColumn fx:id="colnumeroPr" minWidth="204.0" prefWidth="75.0" text="numeroPrincipal" />

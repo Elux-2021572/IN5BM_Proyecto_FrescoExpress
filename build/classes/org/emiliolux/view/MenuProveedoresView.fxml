@@ -28,7 +28,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <TableView fx:id="tblProveedores" layoutX="199.0" layoutY="342.0" prefHeight="384.0" prefWidth="1071.0">
+      <TableView fx:id="tblProveedores" layoutX="199.0" layoutY="342.0" onMouseClicked="#seleccionar" prefHeight="384.0" prefWidth="1071.0">
         <columns>
           <TableColumn fx:id="colCodigo" minWidth="-1.0" prefWidth="113.5999755859375" text="codigoProveedor" />
           <TableColumn fx:id="colNit" minWidth="-1.0" prefWidth="105.5999755859375" text="nitProveedor" />

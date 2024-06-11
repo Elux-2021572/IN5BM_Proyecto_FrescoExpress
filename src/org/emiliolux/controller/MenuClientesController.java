@@ -4,6 +4,8 @@ import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +22,7 @@ import javafx.scene.image.ImageView;
 import javax.swing.JOptionPane;
 import org.emiliolux.bean.Clientes;
 import org.emiliolux.db.Conexion;
+import org.emiliolux.report.GenerarReportes;
 import org.emiliolux.system.Principal;
 
 /**
@@ -340,9 +343,24 @@ public class MenuClientesController implements Initializable {
                 cargarDatos();
                 break;
             case NINGUNO:
+                imprimirReporte();
                 break;
         }
     }
+    
+    public void imprimirReporte(){
+        Map parametros = new HashMap();
+        // La misma logica pero ahora cambia una cosa con el de factura
+        /*
+        int factID = Integer.valueOf((Factura)tblFactura.getSelecionModel().getSelectedItem()).getNumeroFactura();
+        parametros.put(factID,factID);
+        */
+        parametros.hashCode();
+        parametros.put("clienteID", null);
+        GenerarReportes.mostrarReportes("ReporteCliente.jasper", "Reporte de clientes", parametros);
+    }
+    
+    
 
     @FXML
     public void handleButtonAction(ActionEvent event) {
