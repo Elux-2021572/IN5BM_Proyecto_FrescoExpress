@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.emiliolux.controller.CargoEmpleadoController;
 import org.emiliolux.controller.DetalleCompraController;
 import org.emiliolux.controller.DetalleFacturaController;
 import org.emiliolux.controller.EmailProveedorController;
@@ -77,6 +78,15 @@ public class Principal extends Application {
             System.out.println(e.getStackTrace());
         }
 
+    }
+    
+    public void menuCargoEmpleadoView(){
+        try{
+            CargoEmpleadoController CargoEmpleadoView = (CargoEmpleadoController) cambiarEscena("CargoEmpleadoView", 1074,618);
+            CargoEmpleadoView.setEscenarioPrincipal(this);
+        }catch(Exception e){
+            System.out.println(e.getStackTrace());
+        }
     }
 
     public void menuProgramadorView() {

@@ -173,7 +173,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <TableView fx:id="tblCliente" layoutX="287.0" layoutY="331.0" prefHeight="307.0" prefWidth="858.0" stylesheets="@../resource/KinalExpressCSS.css">
+      <TableView fx:id="tblCliente" layoutX="287.0" layoutY="331.0" onMouseClicked="#seleccionarElemento" prefHeight="307.0" prefWidth="858.0" stylesheets="@../resource/KinalExpressCSS.css">
         <columns>
           <TableColumn fx:id="colclienteID" prefWidth="96.0" text="codigoCliente" />
           <TableColumn fx:id="colnitCliente" prefWidth="88.0" text="nitCliente" />

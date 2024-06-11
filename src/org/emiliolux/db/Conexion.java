@@ -44,4 +44,10 @@ public class Conexion {
     public void setConexion(Connection conexion) {
         this.conexion = conexion;
     }
+    
+    
+    /*
+    Terminar crud CargoEmpleado 
+    Hacer lo de la factura con esa cosa de ireport, al menos el de clientes 
+    */
 }
