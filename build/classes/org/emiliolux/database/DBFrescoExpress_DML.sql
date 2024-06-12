@@ -40,9 +40,9 @@ DELIMITER ;
 
 -- SP para buscar un cliente por su NIT
 DELIMITER $$
-create procedure sp_buscarCliente(in _nitCliente varchar(10))
+create procedure sp_buscarCliente(in _clienteID int)
 begin
-    select * from Clientes where nitCliente = _nitCliente;
+    select * from Clientes where clienteID = _clienteID;
 end$$
 DELIMITER ;
 

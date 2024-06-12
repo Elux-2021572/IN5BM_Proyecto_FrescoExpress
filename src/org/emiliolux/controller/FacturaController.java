@@ -147,14 +147,13 @@ public class FacturaController implements Initializable {
         txtFechaFactura.setText(((Factura) tblFactura.getSelectionModel().getSelectedItem()).getFechaFactura());
         cmbClienteID.getSelectionModel().select(buscarClientes(((Factura) tblFactura.getSelectionModel().getSelectedItem()).getClienteID()));
         cmbCodigoEmpleado.getSelectionModel().select(buscarEmpleados(((Factura) tblFactura.getSelectionModel().getSelectedItem()).getCodigoEmpleado()));
-        //txtexistencia.setText(String.valueOf(((Productos) tblProductos.getSelectionModel().getSelectedItem()).getCodigoProveedor()));
     }
     
-    public Clientes buscarClientes(int nitCliente) {
+    public Clientes buscarClientes(int clienteID) {
         Clientes result = null;
         try {
             PreparedStatement procedimiento = Conexion.getInstance().getConexion().prepareCall("{call sp_buscarCliente(?)}");
-            procedimiento.setInt(1, nitCliente);
+            procedimiento.setInt(1, clienteID);
 
             ResultSet registro = procedimiento.executeQuery();
 
@@ -288,9 +287,9 @@ public class FacturaController implements Initializable {
     
     public void imprimirReporte() {
         Map parametros = new HashMap();
-        parametros.hashCode();
-        parametros.put("codigoProducto", null);
-        GenerarReportes.mostrarReportes("ReporteProductos.jasper", "Reporte de Productos", parametros);
+        int factID = Integer.valueOf(((Factura)tblFactura.getSelectionModel().getSelectedItem()).getNumeroDeFactura());
+        parametros.put("factID",factID);
+        GenerarReportes.mostrarReportes("ReporteFactura.jasper", "Reporte de Factura", parametros);
     }
     
     
