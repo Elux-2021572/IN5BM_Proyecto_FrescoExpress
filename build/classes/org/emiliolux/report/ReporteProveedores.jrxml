@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteProveedores" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4fee0567-1551-42a8-835d-98c57ebd6686">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.3310000000000004"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="458"/>
+	<property name="ireport.y" value="90"/>
 	<queryString>
 		<![CDATA[call sp_listarProveedores()]]>
 	</queryString>
@@ -39,49 +39,78 @@
 		</band>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="109" splitType="Stretch"/>
 	</title>
 	<pageHeader>
 		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch">
+		<band height="59" splitType="Stretch">
 			<staticText>
-				<reportElement x="29" y="2" width="100" height="20" uuid="08ff3cc8-832e-44f5-a9c4-599cca05ba81"/>
-				<text><![CDATA[codigoProveedor]]></text>
+				<reportElement x="15" y="2" width="112" height="20" forecolor="#FFFFFF" uuid="08ff3cc8-832e-44f5-a9c4-599cca05ba81"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código Proveedor |]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="129" y="2" width="100" height="20" uuid="05229b0f-011e-4233-8396-86c40e5ae362"/>
-				<text><![CDATA[nitProveedor]]></text>
+				<reportElement x="137" y="2" width="111" height="20" forecolor="#FFFFFF" uuid="05229b0f-011e-4233-8396-86c40e5ae362"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nit Proveedor |]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="266" y="2" width="100" height="20" uuid="e341dfc4-260e-4390-a9bb-2a6953a4a7c7"/>
-				<text><![CDATA[nombresProveedor]]></text>
+				<reportElement x="225" y="2" width="122" height="20" forecolor="#FFFFFF" uuid="e341dfc4-260e-4390-a9bb-2a6953a4a7c7"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombres  |]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="397" y="2" width="100" height="20" uuid="8a90d26a-fae7-4db6-927b-3e1a6d582724"/>
-				<text><![CDATA[apellidosProveedor]]></text>
+				<reportElement x="291" y="2" width="100" height="20" forecolor="#FFFFFF" uuid="8a90d26a-fae7-4db6-927b-3e1a6d582724"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellidos  |]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="366" y="2" width="124" height="20" forecolor="#FFFFFF" uuid="dc17602c-4bea-443e-b0a0-6d9f493312f2"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contacto Principal]]></text>
+			</staticText>
+			<line>
+				<reportElement x="15" y="22" width="528" height="1" forecolor="#CCCCCC" uuid="8a7eb141-bd41-41fe-b72a-aad7957ba4af"/>
+			</line>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="76" splitType="Stretch">
 			<textField>
-				<reportElement x="29" y="0" width="100" height="20" uuid="8cf816c8-416b-4afd-a0ec-a7df2f120eb5"/>
+				<reportElement x="37" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="8cf816c8-416b-4afd-a0ec-a7df2f120eb5"/>
 				<textFieldExpression><![CDATA[$F{codigoProveedor}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="129" y="0" width="100" height="20" uuid="8d278ffe-ff89-4ee6-be87-9eb1120c8254"/>
+				<reportElement x="137" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="8d278ffe-ff89-4ee6-be87-9eb1120c8254"/>
 				<textFieldExpression><![CDATA[$F{nitProveedor}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="266" y="10" width="100" height="20" uuid="f8dd7cab-3e91-4ed5-b8ea-f724a41c45c5"/>
+				<reportElement x="225" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="f8dd7cab-3e91-4ed5-b8ea-f724a41c45c5"/>
 				<textFieldExpression><![CDATA[$F{nombresProveedor}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="397" y="8" width="100" height="20" uuid="2ee2de0d-5572-4860-bfa6-f7562f1400cc"/>
+				<reportElement x="302" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="2ee2de0d-5572-4860-bfa6-f7562f1400cc"/>
 				<textFieldExpression><![CDATA[$F{apellidosProveedor}]]></textFieldExpression>
 			</textField>
+			<textField>
+				<reportElement x="378" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="7edcf58b-33f3-4f4c-9728-ae292e35c17d"/>
+				<textFieldExpression><![CDATA[$F{contactoPrincipal}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="15" y="39" width="528" height="1" forecolor="#CCCCCC" uuid="7c9e59a4-e7f0-4171-ad02-ecca1a3411ed"/>
+			</line>
 		</band>
 	</detail>
 	<columnFooter>
